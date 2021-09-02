@@ -9,7 +9,9 @@ const TodoList = (props) => {
   const {data} = props
   
   return (
-    <Todo data={data} />
+    <div>
+      <Todo data={data}/>
+    </div>
   )
 }
 

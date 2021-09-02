@@ -16,15 +16,12 @@ const todoTasks = [
   },
   {
     task: 'Mow Lawn',
-    id: 817263817263,
+    id: 1528817084360,
     completed: false
   }
 ];
+
 class App extends React.Component {
-  // you will need a place to store your state in this component.
-  // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
-  
   constructor() {
     super();
     this.state = {
@@ -32,12 +29,25 @@ class App extends React.Component {
     }
   }
   
+  handleTaskAdd = (name) => {
+    const tasks = {
+      task: name,
+      id: Date.now(),
+      completed: false
+    }
+    
+    const newTaskList = [...this.state.tasks, tasks]
+    this.setState({
+      tasks: newTaskList
+    })
+  }
+  
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <TodoList data={this.state.tasks}/>
-        <TodoForm />
+        <TodoForm handleTaskAdd={this.handleTaskAdd}/>
       </div>
     );
   }
