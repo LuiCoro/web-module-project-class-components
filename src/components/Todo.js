@@ -2,18 +2,13 @@ import React from 'react'
 
 const Todo = (props) => {
   
-  const {data} = props
-  console.log(data)
+  const handleClick = () => {
+    props.handleTaskToggle(props.item.id)
+  }
   
   return (
     <div>
-      {
-        data.map(item => {
-          return (
-            <h3 key={item.id}>{item.task}</h3>
-          )
-        })
-      }
+      <h3>{props.item.task}</h3>
     </div>
   )
 }
